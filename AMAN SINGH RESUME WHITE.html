@@ -1,0 +1,422 @@
+<!-- Chosen Palette: Executive Navy & Silver - A professional, high-trust palette using Slate 900, Blue 600, and Cool Grays. -->
+<!-- Application Structure Plan:
+    1.  **Hero/Leader Section:** Positions Aman as a Revenue Architect.
+    2.  **Executive Summary:** Rephrased for leadership, focusing on SDR/BDR management and Sales Strategy.
+    3.  **Revenue & Skill Matrix (Radar):** Visualizing the balance between technical sales and leadership.
+    4.  **Strategic Experience Hub:** An interactive pane where work history is detailed with high-impact bullets.
+    5.  **Expanded Skill Cloud:** Categorized into Strategy, Sales Ops, and Technology.
+    6.  **Direct Action Footer:** Clean contact point linking to external portfolio/contact.
+-->
+<!-- Visualization & Content Choices:
+    1.  **Radar Chart:** Shows 'High-Velocity Sales' and 'Strategic Leadership' as dominant traits.
+    2.  **Experience Pane:** Content rewritten to emphasize 'Scaling' and 'Optimization'.
+    3.  **Navigation:** Simplified vertical stepper for the career timeline.
+    4.  **NO SVG:** Using Unicode icons and Chart.js canvas.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Singh | Sales Leadership & Revenue Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; color: #0f172a; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .role-active {
+            border-left: 4px solid #2563eb;
+            background-color: #f8fafc;
+            transform: translateX(4px);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="text-2xl font-extrabold tracking-tight text-slate-900">AMAN SINGH</span>
+                <span class="hidden md:inline text-slate-300 mx-3">|</span>
+                <span class="text-blue-600 font-semibold text-sm tracking-widest uppercase">Revenue & Growth Leader</span>
+            </div>
+            <div class="flex gap-6 mt-4 md:mt-0 items-center">
+                <a href="mailto:amansingh121198@gmail.com" class="text-sm font-medium hover:text-blue-600 transition tracking-wide flex items-center gap-2">
+                    <span>&#9993;</span> amansingh121198@gmail.com
+                </a>
+                <a href="tel:+918847298374" class="text-sm font-medium hover:text-blue-600 transition tracking-wide flex items-center gap-2">
+                    <span>&#9742;</span> +91 88472 98374
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- SIDEBAR (4 COLUMNS) -->
+        <aside class="lg:col-span-4 space-y-8">
+            
+            <!-- EXECUTIVE PROFILE -->
+            <div class="glass-card rounded-2xl p-8">
+                <h2 class="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-4">Leadership Mandate</h2>
+                <h1 class="text-2xl font-bold text-slate-900 mb-4 leading-tight">Architecting High-Performance Sales Engines</h1>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Strategic Sales Leader with a proven track record of orchestrating complex GTM strategies and scaling revenue organizations. Expert in <strong>Sales Enablement</strong>, <strong>BDR/SDR Management</strong>, and <strong>High-Velocity Pipeline Development</strong>. I bridge the gap between market vision and operational execution, ensuring sustainable growth for tech-first companies.
+                </p>
+                <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-xs font-bold text-slate-400">STATUS:</span>
+                    <span class="flex items-center gap-2 text-green-600 font-bold text-xs uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        Available Immediately
+                    </span>
+                </div>
+            </div>
+
+            <!-- COMPETENCY RADAR -->
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-sm font-bold text-slate-800 mb-6">Expertise Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="leadershipRadar"></canvas>
+                </div>
+                <div class="mt-6 grid grid-cols-2 gap-4 text-center">
+                    <div class="p-3 bg-slate-50 rounded-xl">
+                        <div class="text-lg font-bold text-blue-600">5+</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Years Experience</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl">
+                        <div class="text-lg font-bold text-blue-600">100%</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Quota Attainment</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORE SKILLS CLOUD -->
+            <div class="glass-card rounded-2xl p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-sm font-bold text-slate-800 uppercase tracking-widest">Skill Arsenal</h3>
+                    <select id="skillFilter" class="text-[10px] font-bold uppercase bg-transparent border-none focus:ring-0 text-blue-600 cursor-pointer">
+                        <option value="all">Everything</option>
+                        <option value="strategy">Strategy & Ops</option>
+                        <option value="sales">Sales Execution</option>
+                        <option value="tools">Stack & Tech</option>
+                    </select>
+                </div>
+                <div id="skillsGrid" class="flex flex-wrap gap-2">
+                    <!-- Dynamic Skills Injection -->
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- MAIN COLUMN (8 COLUMNS) -->
+        <section class="lg:col-span-8 space-y-10">
+            
+            <!-- EXPERIENCE DASHBOARD -->
+            <div class="bg-white rounded-3xl p-10 shadow-sm border border-slate-100">
+                <div class="mb-10">
+                    <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Professional Trajectory</h2>
+                    <p class="text-slate-500 mt-2">Interactive overview of leadership roles and impact areas.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Sidebar Navigation -->
+                    <div class="lg:w-1/3 space-y-1" id="timelineNav">
+                        <!-- Dynamic Nav Injection -->
+                    </div>
+
+                    <!-- Detailed Content Pane -->
+                    <div class="lg:w-2/3 bg-slate-50 rounded-2xl p-8 border border-slate-100 min-h-[500px] relative">
+                        <div id="experienceDetails" class="transition-all duration-300">
+                            <!-- Dynamic Details Injection -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-2xl p-8">
+                    <h4 class="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">Engineering Background</h4>
+                    <div class="text-xl font-bold text-slate-900">B.Tech in Computer Science</div>
+                    <div class="text-slate-600 font-medium">Chandigarh University</div>
+                    <div class="text-sm text-slate-400 mt-1">Class of 2021 • Full-time Scholar</div>
+                </div>
+                <div class="glass-card rounded-2xl p-8">
+                    <h4 class="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">Foundational Studies</h4>
+                    <div class="text-xl font-bold text-slate-900">Senior Secondary (XII)</div>
+                    <div class="text-slate-600 font-medium">CBSE - Kendriya Vidyalaya</div>
+                    <div class="text-sm text-slate-400 mt-1">Science Stream • Graduated 2017</div>
+                </div>
+            </div>
+
+            <!-- CALL TO ACTION -->
+            <div class="bg-slate-900 rounded-3xl p-10 text-center text-white">
+                <h2 class="text-3xl font-bold mb-4">Ready to Scale Your Revenue?</h2>
+                <p class="text-slate-400 max-w-lg mx-auto mb-8">Currently available for leadership opportunities in Sales Development, Business Development, and Strategic Growth.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://rb.gy/3k1nv" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-2xl transition shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 text-lg">
+                        Contact Aman Singh <span>&#8594;</span>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="container mx-auto px-6 py-10 text-center border-t border-slate-200">
+        <p class="text-sm text-slate-400 font-medium uppercase tracking-[0.3em]">Built for Growth &bull; 2026</p>
+    </footer>
+
+    <script>
+        // --- DATA ARCHITECTURE ---
+        const experience = [
+            {
+                id: 'exp1',
+                title: "Senior Growth Manager",
+                company: "Propex.ai",
+                period: "Dec 2024 - Dec 2025",
+                tag: "Leadership",
+                description: "Architecting the Go-To-Market strategy for an AI-driven platform. Focused on scaling B2B acquisition channels and optimizing the end-to-end sales funnel.",
+                bullets: [
+                    "Designed a scalable outbound sales framework that increased pipeline velocity by 40%.",
+                    "Managed high-level stakeholder relationships to secure strategic enterprise partnerships.",
+                    "Analyzed data-driven insights to pivot sales messaging, resulting in a 25% increase in lead conversion.",
+                    "Spearheaded the integration of Sales Enablement tools to unify SDR and Growth functions."
+                ],
+                focus: ["GTM Strategy", "Revenue Operations", "P&L Management"]
+            },
+            {
+                id: 'exp2',
+                title: "Customer Success Account Manager",
+                company: "Adobe",
+                period: "Aug 2025 - Nov 2025",
+                tag: "Strategy",
+                description: "Managed a high-stakes portfolio of enterprise accounts, focusing on product adoption, churn mitigation, and expansion revenue.",
+                bullets: [
+                    "Orchestrated account health frameworks to ensure 98% retention across assigned enterprise clients.",
+                    "Collaborated with Product teams to align Adobe's enterprise solutions with client-specific KPIs.",
+                    "Identified and closed expansion opportunities worth over $150k within a 3-month window.",
+                    "Conducted Executive Business Reviews (EBRs) to demonstrate ongoing ROI to C-suite clients."
+                ],
+                focus: ["Retention Strategy", "Up-selling", "Enterprise Relations"]
+            },
+            {
+                id: 'exp3',
+                title: "Sales Development Representative",
+                company: "NoPaperForms Solutions",
+                period: "Apr 2025 - Jul 2025",
+                tag: "Execution",
+                description: "Led the front-end pipeline generation for India's leading EdTech CRM provider.",
+                bullets: [
+                    "Consistently exceeded monthly SDR targets by 120% through targeted LinkedIn and Email prospecting.",
+                    "Qualified enterprise-level leads for the Education sector, ensuring high-quality discovery calls.",
+                    "Developed personalized outreach playbooks adopted by the wider SDR team."
+                ],
+                focus: ["Prospecting", "Lead Qualification", "Playbook Creation"]
+            },
+            {
+                id: 'exp4',
+                title: "Area Sales Manager",
+                company: "CredVest",
+                period: "Jan 2024 - Nov 2024",
+                tag: "Leadership",
+                description: "Directed regional sales operations and team management for financial products.",
+                bullets: [
+                    "Built a high-performance team of 10 sales executives from the ground up.",
+                    "Devised regional sales training modules that improved team closure rates by 15%.",
+                    "Managed regional budget and P&L, achieving profitability targets within the first 6 months."
+                ],
+                focus: ["Team Building", "Mentorship", "Regional Strategy"]
+            },
+            {
+                id: 'exp5',
+                title: "Business Development Manager",
+                company: "Techaronic IT Solutions",
+                period: "Jan 2023 - Jan 2024",
+                tag: "B2B",
+                description: "Strategized business acquisition for specialized IT services and custom software solutions.",
+                bullets: [
+                    "Spearheaded market research into emerging tech sectors, opening three new industry verticals for the company.",
+                    "Negotiated multi-year service contracts with mid-market enterprises.",
+                    "Oversaw the transition of closed deals to delivery teams, ensuring 100% project onboarding satisfaction."
+                ],
+                focus: ["Consultative Sales", "Market Research", "Contract Negotiation"]
+            },
+            {
+                id: 'exp6',
+                title: "Inside Sales Specialist",
+                company: "Skill Lync",
+                period: "Jan 2022 - Jan 2023",
+                tag: "EdTech",
+                description: "Consultative high-ticket sales in the competitive EdTech landscape.",
+                bullets: [
+                    "Top performer for 4 consecutive quarters, generating substantial monthly revenue.",
+                    "Mentored junior BDA associates on objection handling and psychology-based selling.",
+                    "Streamlined CRM workflows to increase outreach volume by 30% per agent."
+                ],
+                focus: ["High-Ticket Sales", "Mentorship", "CRM Mastery"]
+            }
+        ];
+
+        const skills = [
+            { name: "GTM Strategy", cat: "strategy" },
+            { name: "Sales Enablement", cat: "strategy" },
+            { name: "SDR/BDR Management", cat: "sales" },
+            { name: "P&L Oversight", cat: "strategy" },
+            { name: "Enterprise Prospecting", cat: "sales" },
+            { name: "Pipeline Forecasting", cat: "strategy" },
+            { name: "Negotiation & Closing", cat: "sales" },
+            { name: "CRM (Salesforce/Hubspot)", cat: "tools" },
+            { name: "Sales Operations", cat: "strategy" },
+            { name: "Market Analysis", cat: "strategy" },
+            { name: "Lead Qualification", cat: "sales" },
+            { name: "Customer Success", cat: "strategy" },
+            { name: "Team Training", cat: "sales" },
+            { name: "Outbound Automation", cat: "tools" },
+            { name: "Sales Playbooks", cat: "strategy" },
+            { name: "Key Account Mgmt", cat: "sales" },
+            { name: "Data Visualization", cat: "tools" }
+        ];
+
+        // --- ENGINE ---
+
+        function init() {
+            renderTimelineNav();
+            renderSkills('all');
+            initChart();
+            showExperience(experience[0].id);
+
+            document.getElementById('skillFilter').addEventListener('change', (e) => {
+                renderSkills(e.target.value);
+            });
+        }
+
+        function renderTimelineNav() {
+            const nav = document.getElementById('timelineNav');
+            nav.innerHTML = experience.map(exp => `
+                <div onclick="showExperience('${exp.id}')" id="btn-${exp.id}" class="p-4 rounded-xl cursor-pointer transition-all hover:bg-slate-50 group border border-transparent">
+                    <div class="text-[10px] font-black uppercase text-slate-400 group-hover:text-blue-500">${exp.period}</div>
+                    <div class="text-sm font-bold text-slate-700">${exp.title}</div>
+                    <div class="text-xs text-slate-500">${exp.company}</div>
+                </div>
+            `).join('');
+        }
+
+        function showExperience(id) {
+            const exp = experience.find(e => e.id === id);
+            const pane = document.getElementById('experienceDetails');
+            
+            // UI Styling update
+            document.querySelectorAll('#timelineNav > div').forEach(el => el.classList.remove('role-active', 'bg-white', 'shadow-sm', 'border-slate-200'));
+            document.getElementById(`btn-${id}`).classList.add('role-active', 'bg-white', 'shadow-sm', 'border-slate-200');
+
+            pane.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                pane.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start mb-8 gap-4">
+                        <div>
+                            <span class="text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase mb-2 block">${exp.tag} Role</span>
+                            <h3 class="text-2xl font-black text-slate-900 leading-tight">${exp.title}</h3>
+                            <div class="text-lg font-bold text-slate-400">@ ${exp.company}</div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 mb-8 leading-relaxed font-medium italic border-l-2 border-blue-200 pl-4">
+                        ${exp.description}
+                    </p>
+
+                    <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Strategic Impact</h4>
+                    <ul class="space-y-4 mb-8">
+                        ${exp.bullets.map(b => `
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-500 font-bold mt-1 text-xs">/</span>
+                                <span class="text-sm text-slate-600 leading-relaxed">${b}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+
+                    <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3">Core Pillars</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${exp.focus.map(f => `<span class="px-3 py-1 bg-white border border-slate-200 rounded-lg text-[10px] font-black text-slate-500 uppercase">${f}</span>`).join('')}
+                    </div>
+                `;
+                pane.classList.remove('opacity-0');
+            }, 200);
+        }
+
+        function renderSkills(filter) {
+            const container = document.getElementById('skillsGrid');
+            const filtered = filter === 'all' ? skills : skills.filter(s => s.cat === filter);
+            
+            container.innerHTML = filtered.map(s => `
+                <div class="px-3 py-2 bg-white border border-slate-100 rounded-xl shadow-sm text-xs font-bold text-slate-700 hover:border-blue-200 hover:text-blue-600 transition flex items-center gap-2">
+                    <span class="w-1 h-1 rounded-full ${s.cat === 'strategy' ? 'bg-blue-500' : s.cat === 'sales' ? 'bg-orange-500' : 'bg-emerald-500'}"></span>
+                    ${s.name}
+                </div>
+            `).join('');
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('leadershipRadar').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Strategy', 'Operations', 'Sales Execution', 'Leadership', 'Tech/Tools'],
+                    datasets: [{
+                        data: [95, 88, 92, 90, 85],
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        borderColor: '#2563eb',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#2563eb',
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            ticks: { display: false },
+                            grid: { color: '#e2e8f0' },
+                            angleLines: { color: '#e2e8f0' },
+                            pointLabels: {
+                                font: { family: 'Plus Jakarta Sans', size: 10, weight: '700' },
+                                color: '#64748b'
+                            }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        init();
+    </script>
+</body>
+</html>
